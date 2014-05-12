@@ -12,7 +12,7 @@
 		45393F5111DC125700A4C942 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
 		45393F5411DC126500A4C942 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		45393F5811DC127600A4C942 /* CTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 45393F5711DC127600A4C942 /* CTester.m */; };
-		45393FA011DC141800A4C942 /* UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45393F9E11DC141800A4C942 /* UnitTests.m */; };
+		45393FA011DC141800A4C942 /* NSObject_KVOBlockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45393F9E11DC141800A4C942 /* NSObject_KVOBlockTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		45393F5711DC127600A4C942 /* CTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTester.m; sourceTree = "<group>"; };
 		45393F9C11DC141800A4C942 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		45393F9D11DC141800A4C942 /* UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTests.h; sourceTree = "<group>"; };
-		45393F9E11DC141800A4C942 /* UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitTests.m; sourceTree = "<group>"; };
+		45393F9E11DC141800A4C942 /* NSObject_KVOBlockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_KVOBlockTests.m; sourceTree = "<group>"; };
 		4577CD6B106150E5006432BE /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,7 +95,7 @@
 			children = (
 				45393F9C11DC141800A4C942 /* Unit Tests-Info.plist */,
 				45393F9D11DC141800A4C942 /* UnitTests.h */,
-				45393F9E11DC141800A4C942 /* UnitTests.m */,
+				45393F9E11DC141800A4C942 /* NSObject_KVOBlockTests.m */,
 			);
 			path = "Unit Tests";
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45393FA011DC141800A4C942 /* UnitTests.m in Sources */,
+				45393FA011DC141800A4C942 /* NSObject_KVOBlockTests.m in Sources */,
 				4530DC2A1402C7CE00FCBA6F /* NSObject_KVOBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

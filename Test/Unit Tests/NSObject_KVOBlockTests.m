@@ -29,33 +29,16 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
 
-#import "UnitTests.h"
 
+#import <SenTestingKit/SenTestingKit.h>
 #import "NSObject_KVOBlock.h"
 
-@interface UnitTests ()
-@property (readwrite, nonatomic, retain) NSString *testValue;
-@property (readwrite, nonatomic, retain) id token;
+@interface UnitTests : SenTestCase
+@property (nonatomic) NSString *testValue;
+@property (nonatomic) id token;
 @end
 
-#pragma mark -
-
-@implementation UnitTests
-
-@synthesize testValue;
-@synthesize token;
-
-- (void)setUp
-    {
-    testValue = NULL;
-    token = NULL;
-    }
-    
-- (void)tearDown
-    {
-    testValue = NULL;
-    token = NULL;
-    }
+@implementation UnitTests @synthesize testValue, token;
 
 - (void)testTokens
     {
