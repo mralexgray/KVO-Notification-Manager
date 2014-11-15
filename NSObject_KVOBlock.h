@@ -1,3 +1,35 @@
+
+typedef void (^KVOFullBlock)(NSString *keyPath, id object, NSDictionary *change);
+
+@interface NSObject (NSObject_KVOBlock)
+
+- (void)        observe:(NSString*)k
+                handler:(void(^)(id me))watched;
+
+- (void)        observe:x
+                    key:(NSString*)k
+                handler:(void(^)(id observer, id observee))both;
+
+- addKVOBlockForKeyPath:(NSString*)inKeyPath
+                options:(NSKeyValueObservingOptions)inOptions
+                handler:(KVOFullBlock)inHandler;
+
+- (void) removeKVOBlockForToken:(id)inToken;
+
+
+/// One shot blocks remove themselves after they've been fired once.
+
+- addOneShotKVOBlockForKeyPath:(NSString*)inKeyPath
+                       options:(NSKeyValueObservingOptions)inOptions
+                       handler:(KVOFullBlock)inHandler;
+
+- (void) KVODump;
+
+@prop_RO const char * UTF8Description;
+
+@end
+
+
 //
 //  NSObject_KVOBlock.h
 //  TouchCode
@@ -28,20 +60,4 @@
 //  The views and conclusions contained in the software and documentation are those of the
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
-
-#import <Foundation/Foundation.h>
-
-typedef void (^KVOFullBlock)(NSString *keyPath, id object, NSDictionary *change);
-
-@interface NSObject (NSObject_KVOBlock)
-
-- (id)addKVOBlockForKeyPath:(NSString *)inKeyPath options:(NSKeyValueObservingOptions)inOptions handler:(KVOFullBlock)inHandler;
-- (void)removeKVOBlockForToken:(id)inToken;
-
-/// One shot blocks remove themselves after they've been fired once.
-- (id)addOneShotKVOBlockForKeyPath:(NSString *)inKeyPath options:(NSKeyValueObservingOptions)inOptions handler:(KVOFullBlock)inHandler;
-
-- (void)KVODump;
-
-@end
 

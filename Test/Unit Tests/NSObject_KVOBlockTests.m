@@ -30,10 +30,10 @@
 //  or implied, of toxicsoftware.com.
 
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "NSObject_KVOBlock.h"
 
-@interface UnitTests : SenTestCase
+@interface UnitTests : XCTestCase
 @property (nonatomic) NSString *testValue;
 @property (nonatomic) id token;
 @end
@@ -46,8 +46,8 @@
     __block NSString *theNewValue = @"";
 
     self.testValue = @"1";
-    STAssertEqualObjects(theOldValue, @"", @"Failed.");
-    STAssertEqualObjects(theNewValue, @"", @"Failed.");
+    XCTAssertEqualObjects(theOldValue, @"", @"Failed.");
+    XCTAssertEqualObjects(theNewValue, @"", @"Failed.");
     
     NSString *theToken = [self addKVOBlockForKeyPath:@"testValue" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld handler:^(NSString *keyPath, id object, NSDictionary *change) {
         theOldValue = [change objectForKey:NSKeyValueChangeOldKey];
@@ -55,12 +55,12 @@
         }];
 
     self.testValue = @"2";
-    STAssertEqualObjects(theOldValue, @"1", @"Failed.");
-    STAssertEqualObjects(theNewValue, @"2", @"Failed.");
+    XCTAssertEqualObjects(theOldValue, @"1", @"Failed.");
+    XCTAssertEqualObjects(theNewValue, @"2", @"Failed.");
 
     self.testValue = @"3";
-    STAssertEqualObjects(theOldValue, @"2", @"Failed.");
-    STAssertEqualObjects(theNewValue, @"3", @"Failed.");
+    XCTAssertEqualObjects(theOldValue, @"2", @"Failed.");
+    XCTAssertEqualObjects(theNewValue, @"3", @"Failed.");
 
     theOldValue = @"";
     theNewValue = @"";
@@ -68,8 +68,8 @@
     [self removeKVOBlockForToken:theToken];
     
     self.testValue = @"4";
-    STAssertEqualObjects(theOldValue, @"", @"Failed.");
-    STAssertEqualObjects(theNewValue, @"", @"Failed.");
+    XCTAssertEqualObjects(theOldValue, @"", @"Failed.");
+    XCTAssertEqualObjects(theNewValue, @"", @"Failed.");
     }
 
 - (void)testOneShot
@@ -78,8 +78,8 @@
     __block NSString *theNewValue = @"";
 
     self.testValue = @"1";
-    STAssertEqualObjects(theOldValue, @"", @"Failed.");
-    STAssertEqualObjects(theNewValue, @"", @"Failed.");
+    XCTAssertEqualObjects(theOldValue, @"", @"Failed.");
+    XCTAssertEqualObjects(theNewValue, @"", @"Failed.");
     
     [self addOneShotKVOBlockForKeyPath:@"testValue" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld handler:^(NSString *keyPath, id object, NSDictionary *change) {
         theOldValue = [change objectForKey:NSKeyValueChangeOldKey];
@@ -87,12 +87,12 @@
         }];
 
     self.testValue = @"2";
-    STAssertEqualObjects(theOldValue, @"1", @"Failed.");
-    STAssertEqualObjects(theNewValue, @"2", @"Failed.");
+    XCTAssertEqualObjects(theOldValue, @"1", @"Failed.");
+    XCTAssertEqualObjects(theNewValue, @"2", @"Failed.");
 
     self.testValue = @"3";
-    STAssertEqualObjects(theOldValue, @"1", @"Failed.");
-    STAssertEqualObjects(theNewValue, @"2", @"Failed.");
+    XCTAssertEqualObjects(theOldValue, @"1", @"Failed.");
+    XCTAssertEqualObjects(theNewValue, @"2", @"Failed.");
     }
 
 @end
